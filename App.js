@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect} from 'react';
-import { StyleSheet, SafeAreaView, StatusBar as Stas,
-AsyncStorage} from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar as Stas} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -13,29 +13,11 @@ import VoiceActors from './screens/VoiceActors';
 import Staff from './screens/Staff';
 import AnimeRating from './screens/AnimeRating';
 import AnimeNews from './screens/AnimeNews';
+import Wishlist from './screens/Wishlist';
 
 
 const Stack = createNativeStackNavigator();
 export default function App() {
-
-  // const load = async () => {
-  //   try{
-  //     let loggedStatus = await AsyncStorage.getItem("IsLoggedIn")
-
-  //     if (loggedStatus === "loggedin"){
-  //       setIsLoggedIn(false)
-  //     }else{
-  //       setIsLoggedIn(false)
-  //     }
-  //   }catch{err}{
-  //     alert(err)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   load()
-  // }, [])
-
   return (
     <SafeAreaView style={styles.FullAppView}>      
       <NavigationContainer>
@@ -47,6 +29,7 @@ export default function App() {
           <Stack.Screen name="Staff" component={Staff} />
           <Stack.Screen name="AnimeRating" component={AnimeRating} />
           <Stack.Screen name="AnimeNews" component={AnimeNews} />
+          <Stack.Screen name="Wishlist" component={Wishlist} />
         </Stack.Navigator>
       </NavigationContainer>    
     </SafeAreaView>

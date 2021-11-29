@@ -44,7 +44,10 @@ export default function DetailedAnime(props) {
                 />
                 <ScrollView>
                     {isImageShown ?
-                        <AnimeImageSlide animeID={animeID} />
+                        <AnimeImageSlide 
+                            QueryedAnime={QueryedAnime} 
+                            animeID={animeID}
+                        />
                         :<DetailAnime />
                     }
 

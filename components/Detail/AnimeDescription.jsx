@@ -13,8 +13,9 @@ export default function AnimeDescription(props) {
                     {data.demographics && data.demographics.map((demographic, index) => (
                         <TouchableOpacity
                             activeOpacity={.7}
+                            key={index}
                         >
-                            <Text style={styles.animeTypes} key={index}>
+                            <Text style={styles.animeTypes}>
                                 {demographic.name}
                             </Text>
                         </TouchableOpacity>
@@ -22,8 +23,9 @@ export default function AnimeDescription(props) {
                     {data.themes && data.themes.map((theme, index) => (
                         <TouchableOpacity
                             activeOpacity={.7}
+                            key={index}
                         >
-                            <Text style={styles.animeTypes} key={index}>
+                            <Text style={styles.animeTypes}>
                                 {theme.name}
                             </Text>
                         </TouchableOpacity>

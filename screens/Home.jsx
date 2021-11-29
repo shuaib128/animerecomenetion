@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { StyleSheet, View, ScrollView, RefreshControl } from 'react-native'
 import PromoAnime from '../components/HomeScreenComponents/PromoAnime';
 import AnimeLists from '../components/HomeScreenComponents/AnimeLists';

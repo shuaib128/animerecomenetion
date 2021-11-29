@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import RecentAnimeList from './RecentAnimeList';
 import TopAnimeList from './TopAnimeList';
 import UpcommingAnimeList from './UpcommingAnimeList';
@@ -21,6 +21,17 @@ export default function AnimeLists(props) {
 
     return (
         <View style={styles.animeListView}>
+            <View>
+                <TouchableOpacity
+                    activeOpacity={.7}
+                    onPressIn={() => {
+                        props.navigation && props.navigation.navigate('Wishlist')
+                    }}
+                >
+                    <Text style={styles.watchlistbtn}>My Watchlist</Text>
+                </TouchableOpacity>
+            </View>
+
             <RecentAnimeList 
                 navigation={props.navigation}
             />
@@ -59,4 +70,10 @@ const styles = StyleSheet.create({
         paddingVertical: 17,
         backgroundColor: "white"
     },
+
+    watchlistbtn: {
+        fontSize: 17,
+        fontWeight: "bold",
+        alignSelf: "flex-end"
+    }
 });
