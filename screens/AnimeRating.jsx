@@ -5,18 +5,24 @@ import sharingan from "./sharingan.gif"
 
 export default function AnimeRating(props) {
     const { animeID } = props.route.params
+    const [Loaded, setLoaded] = useState(false)
 
     const [Reviews, setReviews] = useState(() => {
         return axios.get(`https://api.jikan.moe/v3/anime/${animeID}/reviews/1`)
-        .then(res => setReviews(res.data["reviews"]))
+        .then(res => {
+            setReviews(res.data["reviews"])
+            setLoaded(true)
+        })
         .catch(function (error) {
             throw (error.response);
         })
     })
-    if (!Reviews) return (
-        <View style={{alignItems: "center", marginTop: 50}}>
-            <Image source={sharingan}/>           
-            <Text style={{fontSize: 20, color: "white"}}>Loading....</Text>
+    if (!Loaded) return (
+        <View style={styles.FullReViewScreen}>
+            <View style={{alignItems: "center", marginTop: 50}}>
+                <Image source={sharingan}/>           
+                <Text style={{fontSize: 20, color: "white"}}>Loading....</Text>
+            </View>
         </View>
     )
 
@@ -37,7 +43,7 @@ export default function AnimeRating(props) {
                                     style={styles.charectorImage}
                                 />
                                 <View style={{marginTop: 5}}>
-                                    <Text>{item.reviewer.username}</Text>
+                                    <Text style={{color:"white"}}>{item.reviewer.username}</Text>
                                     <View style={{flexDirection: "row", flexWrap: "wrap"}}>
                                         <Text style={styles.rev_txt}>Overall: {item.reviewer.scores.overall}</Text>
                                     </View>
@@ -48,7 +54,7 @@ export default function AnimeRating(props) {
                         </View>
 
                         <View style={[{marginTop: 15}, styles.rev_des]}>
-                            <Text>{item.content}</Text>
+                            <Text style={{color:"white"}}>{item.content}</Text>
                         </View>
                     </View>
                 )}
@@ -62,30 +68,36 @@ const styles = StyleSheet.create({
     FullReViewScreen:{
         paddingHorizontal: 20,
         paddingTop: 20,
-        backgroundColor: "white"
+        backgroundColor: "black",
+        color: "white",
+        flex: 1
     },
 
     reviewView:{
-        marginBottom: 50
+        marginBottom: 50,
+        color: "white"
     },
 
     reviewHead:{
         flexDirection: "row",
         justifyContent: "space-between",
+        color: "white"
     },
 
     rev_des:{
         borderStyle: 'dashed',
         borderRadius: 1,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: 'white',
         padding: 10,
-        paddingHorizontal: 13
+        paddingHorizontal: 13,
+        color: "white"
     },
 
     imageSide:{
         flexDirection: "row",
-        width: "50%"
+        width: "50%",
+        color: "white"
     },
 
     charectorImage:{
@@ -97,7 +109,8 @@ const styles = StyleSheet.create({
 
     rev_txt:{
         marginRight: 10,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: "white"
     },
 
     rev_date: {

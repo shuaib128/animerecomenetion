@@ -16,7 +16,7 @@ export default function AnimeLists(props) {
     useEffect(() => {
         setTimeout(() => {
             setIsShown(true);
-        }, 2000);
+        }, 3000);
     }, []);
 
     return (

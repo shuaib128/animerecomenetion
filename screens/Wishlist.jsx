@@ -55,13 +55,15 @@ export default function Wishlist(props) {
 const styles = StyleSheet.create({
     wishlistFullView: {
         marginTop: 20,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        paddingBottom: 80
     },
 
     widhlist_title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 15
+        marginBottom: 20,
+        marginTop: 10
     },
 
     nolistview:{

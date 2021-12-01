@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
 import {
     StyleSheet, View, Image, Dimensions,
-    Animated, Button, Text
+    Animated, Button
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios'
@@ -101,7 +101,6 @@ export default function AnimeImageSlide(props) {
     const watchlistRemovwHandler = () => {
         remove()
     }
-    console.log(WatchlistID);
 
     return (
         <View style={styles.animeImagesFullView}>

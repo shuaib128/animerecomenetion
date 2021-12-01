@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useEffect} from 'react';
+import React from 'react';
 import { StyleSheet, SafeAreaView, StatusBar as Stas} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 

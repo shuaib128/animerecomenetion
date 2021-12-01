@@ -23,6 +23,8 @@ export default function SearchScreen(props) {
                 <View style={styles.FullSearchView}>
                     <FilterBox 
                         navigation={props.navigation}
+                        setSearchQuery={setSearchQuery}
+                        searchQuery={searchQuery}
                     />
                     <View style={styles.SearchPageMain}>
                         <SearchResults 

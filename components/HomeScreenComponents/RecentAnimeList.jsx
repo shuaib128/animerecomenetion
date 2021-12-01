@@ -13,6 +13,9 @@ export default function RecentAnimeList(props) {
             Animes={recentAnimes}
             navigation={props.navigation}
             header_title={"Recent Anime"}
+            setAnimeList={setRecentAnimes}
+            dataType="anime"
+            queryUrl="https://api.jikan.moe/v3/season/2021/winter"
         />
     )
 }

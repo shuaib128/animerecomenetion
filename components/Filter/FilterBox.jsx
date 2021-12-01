@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import { 
     View, Text, StyleSheet, TouchableOpacity,
-    FlatList, Keyboard
+    FlatList, Keyboard, Image
 } from 'react-native'
 import Ionicons from "react-native-vector-icons/Ionicons"
 import SeachresultAnime from '../Scearch/SeachresultAnime';
 import GenreFilterBox from './GenreFilterBox';
 import SeasonFilterBox from './SeasonFilterBox';
+
+import sharingan from "./sharingan.gif"
 
 export default function FilterBox(props) {
     const [IsPicker, setIsPicker] = useState("dactive");
@@ -17,9 +19,13 @@ export default function FilterBox(props) {
         if(IsPicker === "dactive")
         {
             setIsPicker("active")
+            props.setSearchQuery("")
+            setSelectedLanguage("None")
+            setAnimeQueryGenre()
         }else
         {
             setIsPicker("dactive")
+            props.setSearchQuery("")          
         }
     }
 
@@ -28,6 +34,13 @@ export default function FilterBox(props) {
         setSelectedLanguage("None")
         setAnimeQueryGenre()
     }
+
+    if (!AnimeQueryGenre && selectedLanguage !== "None") return (
+        <View style={{alignItems: "center", marginTop: 50}}>
+            <Image source={sharingan}/>           
+            <Text style={{fontSize: 20, color: "white"}}>Loading....</Text>
+        </View>
+    )
 
     return (
         // Full Filter View
@@ -82,7 +95,7 @@ export default function FilterBox(props) {
             />
 
             {/* Filtered data */}
-            {selectedLanguage !== "None"?
+            {selectedLanguage !== "None" ?
                 <View style={{marginTop: 20, paddingHorizontal: 20,}}>
                     <FlatList
                         onScroll={Keyboard.dismiss}

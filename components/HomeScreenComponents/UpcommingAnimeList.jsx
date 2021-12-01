@@ -13,6 +13,9 @@ export default function RecentAnimeList(props) {
             Animes={upcommingAnimes}
             navigation={props.navigation}
             header_title={"Upcomming Anime"}
+            setAnimeList={setUpcomming}
+            dataType="top"
+            queryUrl = "https://api.jikan.moe/v3/top/anime/1/upcoming"
         />
     )
 }

@@ -1,13 +1,24 @@
 import React from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import AnimeListsAnime from './AnimeListsAnime'
+import axios from 'axios'
 
 export default function HomeAnimeListComponents(props) {
+    const handleUpdate = () => {
+        axios.get(props.queryUrl)
+        .then(res => props.setAnimeList(res.data[props.dataType]))
+    }
+
     return (
         <View style={styles.recentAnimeList}>
             <View style={styles.recentSeeAllView}>
                 <Text style={{fontSize: 20, fontWeight: "bold"}}>{props.header_title}</Text>
-                <Text style={styles.sellAllTxt}>SEE ALL</Text>
+                <TouchableOpacity
+                    activeOpacity={.7}
+                    onPress={handleUpdate}
+                >
+                    <Text style={styles.sellAllTxt}>UPDATE LIST</Text>
+                </TouchableOpacity>
             </View>
             <FlatList
                 contentContainerStyle={styles.list}

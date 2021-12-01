@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         zIndex: 1,
         top: 20,
         flexDirection: 'row',
-        left: 17
+        left: 17,
     },
 
     searchIcon: {

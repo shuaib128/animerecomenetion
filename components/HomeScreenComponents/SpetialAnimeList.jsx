@@ -13,6 +13,9 @@ export default function RecentAnimeList(props) {
             Animes={spetialAnimes}
             navigation={props.navigation}
             header_title={"Spetial Anime"}
+            setAnimeList={setSpetial}
+            dataType="top"
+            queryUrl = "https://api.jikan.moe/v3/top/anime/1/special"
         />
     )
 }

@@ -13,6 +13,9 @@ export default function RecentAnimeList(props) {
             Animes={topAnimes}
             navigation={props.navigation}
             header_title={"Top Anime"}
+            setAnimeList={setTopAnimes}
+            dataType="top"
+            queryUrl = "https://api.jikan.moe/v3/top/anime/1/airing"
         />
     )
 }

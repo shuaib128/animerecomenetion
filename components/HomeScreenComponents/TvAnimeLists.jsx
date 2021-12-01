@@ -13,6 +13,9 @@ export default function TvAnimeLists(props) {
             Animes={TV}
             navigation={props.navigation}
             header_title={"TV"}
+            setAnimeList={setTV}
+            dataType="top"
+            queryUrl = "https://api.jikan.moe/v3/top/anime/1/tv"
         />
     )
 }
